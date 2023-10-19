@@ -1,0 +1,154 @@
+---
+openapi: 3.0.0
+info:
+  title: Weather API
+  description: This API receives weather data from other services
+  contact:
+    email: goutam_thukral@bcit.ca
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - name: services
+    description: Operations available to weather services
+paths:
+  /record/temperature:
+    get:
+      tags:
+        - services
+      summary: gets the temperature readings
+      operationId: app.get_temperature_reading
+      description: Gets the temperature readings added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33.001Z
+      responses:
+        '200':
+          description: Successfully returned a list of temperature readings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TemperatureRecording'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /record/weather_condition:
+    get:
+      tags:
+        - services
+      summary: gets the weather condition recording
+      operationId: app.get_weather_recording
+      description: Gets the weather recordings added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33Z
+      responses:
+        '200':
+          description: Successfully returned a list of temperature readings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherConditionRecording'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    TemperatureRecording:
+      required:
+        - trace_id
+        - date
+        - location
+        - maximum_temperature
+        - minimum_temperature
+        - record_id
+        - timestamp
+      type: object
+      properties:
+        trace_id:
+          type: string
+          example: A1234
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        maximum_temperature:
+          type: number
+          example: 25.4
+        minimum_temperature:
+          type: number
+          example: 25.4
+        date:
+          type: string
+          format: date
+          example: 2023-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33Z
+    WeatherConditionRecording:
+      required:
+        - trace_id
+        - date
+        - humidity
+        - location
+        - record_id
+        - timestamp
+        - weather_condition
+        - wind_speed
+      type: object
+      properties:
+        trace_id:
+          type: string
+          example: A1234
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        wind_speed:
+          type: number
+          example: 15
+        humidity:
+          type: number
+          example: 60
+        weather_condition:
+          type: string
+          example: Partly Cloudy
+        date:
+          type: string
+          format: date
+          example: 2016-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z

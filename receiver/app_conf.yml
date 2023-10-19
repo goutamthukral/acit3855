@@ -1,0 +1,9 @@
+version: 1
+events:
+  hostname: acit3855.westus.cloudapp.azure.com
+  port: 9092
+  topic: events 
+eventstore1:
+  url: http://localhost:8090/record/temperature
+eventstore2:
+  url: http://localhost:8090/record/weather_condition

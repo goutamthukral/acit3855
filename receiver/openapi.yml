@@ -1,0 +1,116 @@
+---
+openapi: 3.0.0
+info:
+  title: Weather API
+  description: This API receives weather data from other services
+  contact:
+    email: goutam_thukral@bcit.ca
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - name: services
+    description: Operations available to weather services
+paths:
+  /record/temperature:
+    post:
+      tags:
+        - services
+      summary: records the weather temperature
+      description: Adds a new temperture reading to the system
+      operationId: app.record_temperature_reading
+      requestBody:
+        description: Reading item to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TemperatureRecording"
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: "invalid input, object invalid"
+  /record/weather_condition:
+    post:
+      tags:
+        - services
+      summary: records the weather condition
+      description: Adds the weather condition to the system
+      operationId: app.record_weather_condition
+      requestBody:
+        description: Reading item to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WeatherConditionRecording"
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: "invalid input, object invalid"
+components:
+  schemas:
+    TemperatureRecording:
+      required:
+        - date
+        - location
+        - maximum_temperature
+        - minimum_temperature
+        - record_id
+        - timestamp
+      type: object
+      properties:
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        maximum_temperature:
+          type: number
+          example: 25.4
+        minimum_temperature:
+          type: number
+          example: 25.4
+        date:
+          type: string
+          format: date
+          example: 2023-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+    WeatherConditionRecording:
+      required:
+        - date
+        - humidity
+        - location
+        - record_id
+        - timestamp
+        - weather_condition
+        - wind_speed
+      type: object
+      properties:
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        wind_speed:
+          type: number
+          example: 15
+        humidity:
+          type: number
+          example: 60
+        weather_condition:
+          type: string
+          example: Partly Cloudy
+        date:
+          type: string
+          format: date
+          example: 2016-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z

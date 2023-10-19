@@ -1,0 +1,155 @@
+openapi: 3.0.0
+info:
+  description: This API provides audit info
+  version: "1.0.0"
+  title: Audit API
+  contact:
+    email: mmulder10@bcit.ca
+paths:
+  /temperature:
+    get:
+      summary: gets a temperature reading from history
+      operationId: app.get_temperature_reading
+      description: Gets temperature readings from the event store
+      parameters:
+        - name: index
+          in: query
+          description: Gets the temperature at the index in the event store
+          schema:
+            type: integer
+            example: 100
+      responses:
+        '200':
+          description: Successfully returned a temperature event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/TemperatureRecording'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /weather_condition:
+    get:
+      summary: gets a weather condition reading from history
+      operationId: app.get_weather_recording
+      description: Gets weather recording from the event store
+      parameters:
+        - name: index
+          in: query
+          description: Gets the weather recording at the index in the event store
+          schema:
+            type: integer
+            example: 100
+      responses:
+        '200':
+          description: Successfully returned a weather recording event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/WeatherConditionRecording'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Not Found
+
+components:
+  schemas:
+    TemperatureRecording:
+      required:
+        - trace_id
+        - date
+        - location
+        - maximum_temperature
+        - minimum_temperature
+        - record_id
+        - timestamp
+      type: object
+      properties:
+        trace_id:
+          type: string
+          example: A1234
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        maximum_temperature:
+          type: number
+          example: 25.4
+        minimum_temperature:
+          type: number
+          example: 25.4
+        date:
+          type: string
+          format: date
+          example: 2023-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33Z
+          
+    WeatherConditionRecording:
+      required:
+        - trace_id
+        - date
+        - humidity
+        - location
+        - record_id
+        - timestamp
+        - weather_condition
+        - wind_speed
+      type: object
+      properties:
+        trace_id:
+          type: string
+          example: A1234
+        record_id:
+          type: string
+          example: A1234
+        location:
+          type: string
+          example: Burnaby
+        wind_speed:
+          type: number
+          example: 15
+        humidity:
+          type: number
+          example: 60
+        weather_condition:
+          type: string
+          example: Partly Cloudy
+        date:
+          type: string
+          format: date
+          example: 2016-08-29
+        timestamp:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z

@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  description: This API provides weather event stats
+  version: "1.0.0"
+  title: Stats API
+  contact:
+    email: goutam_thukral@bcit.ca
+
+paths:
+  /stats:
+    get:
+      summary: Gets the event stats
+      operationId: app.get_stats
+      description: Gets Temperature and Weather recording processed statistics
+      responses:
+        '200':
+          description: Successfully returned a list of Temperature and Weather events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  num_temperature_readings:
+                    type: integer
+                    example: 500000
+                  avg_max_temperature_reading:
+                    type: integer
+                    example: 200
+                  num_weather_recordings:
+                    type: integer
+                    example: 500000
+                  max_humidity_reading:
+                    type: integer
+                    example: 250
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    ReadingStats:
+      required:
+        - num_temperature_readings
+        - avg_max_temperature_reading
+        - num_weather_recordings
+        - max_humidity_reading
+      properties:
+        num_temperature_readings:
+          type: integer
+          example: 500000
+        avg_max_temperature_reading:
+          type: integer
+          example: 200
+        num_weather_recordings:
+          type: integer
+          example: 500000
+        max_humidity_reading:
+          type: integer
+          example: 250
+      type: object

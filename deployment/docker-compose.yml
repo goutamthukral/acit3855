@@ -37,5 +37,29 @@ services:
       - '3306'
     volumes:
       - my-db:/var/lib/mysql
+  receiver:
+    image: receiver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "kafka"
+  storage:
+    image: storage
+    ports: "8090:8090"
+    depends_on:
+      - "kafka"
+      - "db"
+  processing:
+    image: processing
+    ports: "8100:8100"
+    depends_on:
+      - "storage"
+  audit_log:
+    image: audit_log
+    ports: "8110:8110"
+    network:
+      - "host"
+    depends_on:
+      - "kafka"  
 volumes:
   my-db:

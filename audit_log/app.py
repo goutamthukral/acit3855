@@ -13,8 +13,6 @@ from connexion import NoContent
 # from base import Base
 # from record_temperature import Temperature
 # from record_weather import Weather
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 
 

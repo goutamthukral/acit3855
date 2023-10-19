@@ -31,12 +31,7 @@ hostname = app_config['datastore']['hostname']
 port = app_config['datastore']['port']
 db = app_config['datastore']['db']
 
-DB_ENGINE = create_engine(f'mysql+pymysql://{user}:{password}@{hostname}:{port}/{db}')
-
 logger.info(f"Connecting to DB. Hostname: {hostname}, Port: {port}")
-
-# Base.metadata.bind = DB_ENGINE
-DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
 
 def get_temperature_reading(index):

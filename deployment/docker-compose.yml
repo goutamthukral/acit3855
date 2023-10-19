@@ -60,8 +60,6 @@ services:
     image: audit_log
     ports: 
       - "8110:8110"
-    networks:
-      - host
     depends_on:
       - "kafka"  
 volumes:

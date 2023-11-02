@@ -56,6 +56,9 @@ services:
       - "8100:8100"
     depends_on:
       - "storage"
+    networks:
+      host:
+        driver: bridge
   audit_log:
     image: audit_log
     ports: 
@@ -65,5 +68,5 @@ services:
 volumes:
   my-db:
 networks:
-  - host
+  host:
     driver: bridge

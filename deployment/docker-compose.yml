@@ -66,3 +66,4 @@ volumes:
   my-db:
 networks:
   - host
+    driver: bridge

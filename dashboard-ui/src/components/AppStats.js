@@ -6,9 +6,17 @@ export default function AppStats() {
     const [stats, setStats] = useState({});
     const [error, setError] = useState(null)
 
+
+    const getTimeStamp = () => {
+        const timestamp = Date.now(); 
+        return timestamp.toLocaleString(); 
+    };
+  
+  
+
 	const getStats = () => {
 	
-        fetch(`http://<Cloud DNS>:8100/stats`)
+        fetch(`http://acit3855.westus.cloudapp.azure.com:8100/stats`)
             .then(res => res.json())
             .then((result)=>{
 				console.log("Received Stats")
@@ -35,25 +43,22 @@ export default function AppStats() {
                 <table className={"StatsTable"}>
 					<tbody>
 						<tr>
-							<th>Blood Pressure</th>
-							<th>Heart Rate</th>
+							<th>Temperature</th>
+							<th>Weather</th>
 						</tr>
 						<tr>
-							<td># BP: {stats['num_bp_readings']}</td>
-							<td># HR: {stats['num_hr_readings']}</td>
+							<td># Temperature: {stats['num_temperature_readings']}</td>
+							<td># Weather: {stats['num_weather_recordings']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BP Systolic: {stats['max_bp_sys_reading']}</td>
+							<td colspan="2">Average Max Temperature: {stats['avg_max_temperature_reading']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BR Diastolic: {stats['max_bp_dia_reading']}</td>
-						</tr>
-						<tr>
-							<td colspan="2">Max HR: {stats['max_bp_sys_reading']}</td>
+							<td colspan="2">Max Humidity Reading: {stats['max_humidity_reading']}</td>
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {stats['last_updated']}</h3>
+                <h3>Last Updated: {getTimeStamp()}</h3>
 
             </div>
         )

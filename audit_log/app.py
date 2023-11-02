@@ -10,6 +10,7 @@ from pykafka.common import OffsetType
 from threading import Thread
 
 from connexion import NoContent
+from flask_cors import CORS, cross_origin
 # from base import Base
 # from record_temperature import Temperature
 # from record_weather import Weather
@@ -99,6 +100,9 @@ def get_weather_recording(index):
     return { "message": "Not Found"}, 404
 
 app = connexion.FlaskApp(__name__, specification_dir='')
+CORS(app.app)
+app.app.config['CORS_HEADERS'] = 'Content-Type'
+
 app.add_api("openapi.yml",
 strict_validation=True,
 validate_responses=True)

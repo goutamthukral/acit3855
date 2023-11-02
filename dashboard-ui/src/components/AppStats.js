@@ -8,8 +8,10 @@ export default function AppStats() {
 
 
     const getTimeStamp = () => {
-        const timestamp = Date.now(); 
-        return timestamp.toLocaleString(); 
+        const timestamp = Date.now(); // Get the current timestamp in milliseconds
+        const date = new Date(timestamp); // Convert timestamp to a Date object
+        const formattedDate = date.toLocaleString(); // Get a human-readable date string
+        return formattedDate;
     };
   
   
@@ -47,8 +49,8 @@ export default function AppStats() {
 							<th>Weather</th>
 						</tr>
 						<tr>
-							<td># Temperature: {stats['num_temperature_readings']}</td>
-							<td># Weather: {stats['num_weather_recordings']}</td>
+							<td>Number of Temperature Readings: {stats['num_temperature_readings']}</td>
+							<td>Number of Weather Readings: {stats['num_weather_recordings']}</td>
 						</tr>
 						<tr>
 							<td colspan="2">Average Max Temperature: {stats['avg_max_temperature_reading']}</td>

@@ -1,0 +1,16 @@
+2023-11-09 11:22:04,766 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 11:22:04,856 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 11:22:04,905 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 11:22:05,201 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 11:50:16,398 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 11:50:16,477 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 11:50:16,526 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 11:50:16,843 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 12:18:47,046 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 12:18:47,192 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 12:18:47,241 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 12:18:47,533 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 12:20:00,871 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 12:20:01,007 - basicLogger - INFO - Connecting to DB. Hostname: acit3855.westus.cloudapp.azure.com, Port: 3306
+2023-11-09 12:20:01,079 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 12:20:01,299 - basicLogger - INFO - Connection to Kafka successful.

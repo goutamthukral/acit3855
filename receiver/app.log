@@ -1,0 +1,10 @@
+2023-11-09 11:18:50,016 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 11:18:50,326 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 11:18:50,420 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 11:18:50,629 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 12:06:43,135 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 12:06:43,409 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 12:06:43,489 - basicLogger - INFO - Trying to connect to Kafka. Retry count: 0
+2023-11-09 12:06:43,725 - basicLogger - INFO - Connection to Kafka successful.
+2023-11-09 12:09:46,875 - basicLogger - INFO - Received event temperature recording with a trace id of 8b7d68b7-ffd5-4fe7-9d81-17c68ecb3b8f
+2023-11-09 12:09:47,012 - basicLogger - INFO - Returned event temperature recording response 8b7d68b7-ffd5-4fe7-9d81-17c68ecb3b8f with status 201

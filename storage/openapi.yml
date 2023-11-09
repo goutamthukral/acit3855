@@ -60,7 +60,7 @@ paths:
       operationId: app.get_weather_recording
       description: Gets the weather recordings added after a timestamp
       parameters:
-        - name: timestamp
+        - name: start_timestamp
           in: query
           description: Limits the number of items on a page
           schema:

@@ -52,9 +52,11 @@ def populate_stats():
         current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
         last_updated = current_datetime
     
+    current_timestamp = datetime.datetime.now()
+    current_timestamp = current_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    response1 = requests.get(url1, params={'timestamp': last_updated})
-    response2 = requests.get(url2, params={'timestamp': last_updated})
+    response1 = requests.get(url1+ "?start_timestamp=" + last_updated + "&end_timestamp=" + current_timestamp)
+    response2 = requests.get(url2+ "?start_timestamp=" + last_updated + "&end_timestamp=" + current_timestamp)
 
     if response1.status_code != 200 or response2.status_code != 200:
         logger.error("ERROR")

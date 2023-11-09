@@ -8,6 +8,7 @@ import json
 from pykafka import KafkaClient
 from pykafka.common import OffsetType
 from threading import Thread
+import time
 
 from connexion import NoContent
 from base import Base
@@ -15,6 +16,7 @@ from record_temperature import Temperature
 from record_weather import Weather
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import and_
 
 
 
@@ -40,58 +42,16 @@ logger.info(f"Connecting to DB. Hostname: {hostname}, Port: {port}")
 Base.metadata.bind = DB_ENGINE
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
-# def record_temperature_reading(body):
-#     """ Receives a temperature reading """
 
-#     session = DB_SESSION()
-
-#     temp = Temperature(body['trace_id'],
-#                        body['record_id'],
-#                        body['location'],
-#                        body['maximum_temperature'],
-#                        body['minimum_temperature'],
-#                        body['date'])
-
-#     session.add(temp)
-
-#     session.commit()
-#     session.close()
-
-#     logger.debug(f"Stored event 'temperature recording' request with a trace id of {body['trace_id']}")
-
-#     return NoContent, 201
-
-# def record_weather_condition(body):
-#     """ Receives a weather reading """
-
-#     session = DB_SESSION()
-
-#     wthr = Weather(body['trace_id'],
-#                    body['record_id'],
-#                    body['location'],
-#                    body['wind_speed'],
-#                    body['humidity'],
-#                    body['weather_condition'],
-#                    body['date'])
-
-#     session.add(wthr)
-
-#     session.commit()
-#     session.close()
-
-#     logger.debug(f"Stored event 'weather recording' request with a trace id of {body['trace_id']}")
-
-#     return NoContent, 201
-
-
-def get_temperature_reading(timestamp):
+def get_temperature_reading(start_timestamp, end_timestamp):
 
     """ Gets temperature readings after the timestamp """
 
-    timestamp_datetime = datetime.datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
     session = DB_SESSION()
-    readings = session.query(Temperature).filter(Temperature.date_created >=
-                                                    timestamp_datetime).all()
+    start_timestamp_datetime = datetime.datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    end_timestamp_datetime = datetime.datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    readings = session.query(Temperature).filter(and_(Temperature.date_created >= start_timestamp_datetime,
+                                                    Temperature.date_created < end_timestamp_datetime))
 
     results_list = []
     for reading in readings:
@@ -100,17 +60,18 @@ def get_temperature_reading(timestamp):
         results_list.append(element)
 
     session.close()
-    logger.info("Query for Temperature readings after %s returns %d results" %(timestamp, len(results_list)))
+    logger.info("Query for Temperature readings after %s returns %d results" %(end_timestamp, len(results_list)))
     return results_list, 200
 
 
-def get_weather_recording(timestamp):
+def get_weather_recording(start_timestamp, end_timestamp):
 
     """ Gets weather recordings after the timestamp """
-    timestamp_datetime = datetime.datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
     session = DB_SESSION()
-    readings = session.query(Weather).filter(Weather.date_created >=
-                                                    timestamp_datetime).all()
+    start_timestamp_datetime = datetime.datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    end_timestamp_datetime = datetime.datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    readings = session.query(Weather).filter(and_(Weather.date_created >= start_timestamp_datetime,
+                                                    Weather.date_created < end_timestamp_datetime))
     
     results_list = []
     for reading in readings:
@@ -119,17 +80,34 @@ def get_weather_recording(timestamp):
         results_list.append(element)
 
     session.close()
-    logger.info("Query for Weather recordings after %s returns %d results" %(timestamp, len(results_list)))
+    logger.info("Query for Weather recordings after %s returns %d results" %(end_timestamp, len(results_list)))
     return results_list, 200
 
 
 def process_messages():
 
-    """ Process event messages """
+    max_retries = app_config['kafka']['max_retries']  # Maximum number of retries
+    current_retry_count = 0
+
     hostname = f"{app_config['events']['hostname']}:{app_config['events']['port']}" 
-    print(hostname)
-    client = KafkaClient(hosts=hostname)
-    topic = client.topics[str.encode(app_config["events"]["topic"])]
+
+    while current_retry_count < max_retries:
+        try:
+            logger.info(f"Trying to connect to Kafka. Retry count: {current_retry_count}")
+            client = KafkaClient(hosts=hostname)
+            topic = client.topics[str.encode(app_config["events"]["topic"])]
+            logger.info("Connection to Kafka successful.")
+            break  # Break the loop if successful
+        except Exception as e:
+            logger.error(f"Connection to Kafka failed: {str(e)}")
+            if current_retry_count < max_retries:  
+                sleep_time = app_config['kafka']['sleep_time']  
+                logger.info(f"Retrying connection after {sleep_time} seconds.")
+                time.sleep(sleep_time)
+                current_retry_count += 1
+            else:
+                logger.error("Maximum retries reached")
+
     
     # Create a consume on a consumer group, that only reads new messages
     # (uncommitted messages) when the service re-starts (i.e., it doesn't
@@ -143,30 +121,23 @@ def process_messages():
 
         msg_str = msg.value.decode('utf-8')
         msg = json.loads(msg_str)
-    
         logger.info("Message: %s" % msg)
-
         body = msg["payload"]
         
         if msg["type"] == "temperature": # Change this to your event type
             """ Receives a temperature reading """
 
             session = DB_SESSION()
-
             temp = Temperature(body['trace_id'],
                             body['record_id'],
                             body['location'],
                             body['maximum_temperature'],
                             body['minimum_temperature'],
                             body['date'])
-
             session.add(temp)
-
             session.commit()
             session.close()
-
             logger.debug(f"Stored event 'temperature recording' request with a trace id of {body['trace_id']}")
-        
 
         elif msg["type"] == "weather_condition": # Change this to your event type
             session = DB_SESSION()
@@ -177,12 +148,9 @@ def process_messages():
                         body['humidity'],
                         body['weather_condition'],
                         body['date'])
-
             session.add(wthr)
-
             session.commit()
             session.close()
-
             logger.debug(f"Stored event 'weather recording' request with a trace id of {body['trace_id']}")
 
         consumer.commit_offsets()
@@ -199,4 +167,3 @@ if __name__ == "__main__":
     t1.start()
 
     app.run(port=8090, host="0.0.0.0")
-

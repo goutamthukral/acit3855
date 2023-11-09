@@ -7,3 +7,6 @@ eventstore1:
   url: http://localhost:8090/record/temperature
 eventstore2:
   url: http://localhost:8090/record/weather_condition
+kafka:
+  max_retries: 3
+  sleep_time: 5

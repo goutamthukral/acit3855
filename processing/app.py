@@ -86,9 +86,9 @@ def populate_stats():
             if element['humidity'] > max_humidity_reading:
                 max_humidity_reading = element['humidity']
         
-        current_datetime = datetime.datetime.now()
-        current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
-        last_updated = current_datetime
+        # current_datetime = datetime.datetime.now()
+        # current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
+        last_updated = current_timestamp
 
         data = {
                 "num_temperature_readings": num_temperature_readings,

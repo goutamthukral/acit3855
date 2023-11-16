@@ -17,17 +17,40 @@ from record_weather import Weather
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import and_
+import os
 
 
+if "TARGET_ENV" in os.environ and os.environ["TARGET_ENV"] == "test":
+    print("In Test Environment")
+    app_conf_file = "/config/app_conf.yml"
+    log_conf_file = "/config/log_conf.yml"
+else:
+    print("In Dev Environment")
+    app_conf_file = "app_conf.yml"
+    log_conf_file = "log_conf.yml"
 
-with open('log_conf.yml', 'r') as f:
+with open(app_conf_file, 'r') as f:
+    app_config = yaml.safe_load(f.read())
+
+# External Logging Configuration
+with open(log_conf_file, 'r') as f:
     log_config = yaml.safe_load(f.read())
     logging.config.dictConfig(log_config)
 
 logger = logging.getLogger('basicLogger')
 
-with open('app_conf.yml', 'r') as f:
-    app_config = yaml.safe_load(f.read())
+logger.info("App Conf File: %s" % app_conf_file)
+logger.info("Log Conf File: %s" % log_conf_file)
+
+
+# with open('log_conf.yml', 'r') as f:
+#     log_config = yaml.safe_load(f.read())
+#     logging.config.dictConfig(log_config)
+
+# logger = logging.getLogger('basicLogger')
+
+# with open('app_conf.yml', 'r') as f:
+#     app_config = yaml.safe_load(f.read())
 
 user = app_config['datastore']['user']
 password = app_config['datastore']['password']

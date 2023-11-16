@@ -170,7 +170,6 @@ def init_scheduler():
                     seconds=app_config['scheduler']['period_sec'])
     sched.start()
 
-
 app = connexion.FlaskApp(__name__, specification_dir='')
 CORS(app.app)
 app.app.config['CORS_HEADERS'] = 'Content-Type'

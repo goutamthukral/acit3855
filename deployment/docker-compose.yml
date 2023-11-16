@@ -50,6 +50,7 @@ services:
       - TARGET_ENV=test
     volumes:
       - /home/goutam_thukral/config/receiver:/config  
+      - /home/goutam_thukral/logs:/logs
     depends_on:
       - "kafka"
   storage:
@@ -59,7 +60,8 @@ services:
     environment:
       - TARGET_ENV=test
     volumes:
-      - /home/goutam_thukral/config/storage:/config        
+      - /home/goutam_thukral/config/storage:/config
+      - /home/goutam_thukral/logs:/logs        
     depends_on:
       - "kafka"
       - "db"
@@ -74,6 +76,7 @@ services:
       - TARGET_ENV=test
     volumes:
       - /home/goutam_thukral/config/processing:/config  
+      - /home/goutam_thukral/logs:/logs
   audit_log:
     image: audit_log
     ports: 
@@ -82,6 +85,7 @@ services:
       - TARGET_ENV=test
     volumes:
       - /home/goutam_thukral/config/audit_log:/config  
+      - /home/goutam_thukral/logs:/logs
     depends_on:
       - "kafka" 
   dashboard:

@@ -62,6 +62,8 @@ def populate_stats():
             "max_humidity_reading": 0,
             "last_updated": 0
         }
+        with open(filename, "w") as json_file:
+            json.dump(data, json_file)
 
     num_temperature_readings = data['num_temperature_readings']
     avg_max_temperature_reading = data['avg_max_temperature_reading']

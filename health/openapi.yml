@@ -1,37 +1,41 @@
 openapi: 3.0.0
 info:
-  description: This API provides weather event stats
+  description: This API provides health stats
   version: "1.0.0"
   title: Stats API
   contact:
     email: goutam_thukral@bcit.ca
 
 paths:
-  /stats:
+  /health:
     get:
-      summary: Gets the event stats
-      operationId: app.get_stats
-      description: Gets Temperature and Weather recording processed statistics
+      summary: Gives health status 
+      description: Gives health status
+      operationId: app.get_health
       responses:
         '200':
-          description: Successfully returned a list of Temperature and Weather events
+          description: Successfully returned health stats
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  num_temperature_readings:
-                    type: integer
-                    example: 500000
-                  avg_max_temperature_reading:
-                    type: integer
-                    example: 200
-                  num_weather_recordings:
-                    type: integer
-                    example: 500000
-                  max_humidity_reading:
-                    type: integer
-                    example: 250
+                  receiver:
+                    type: string
+                    example: Running
+                  storage:
+                    type: string
+                    example: Running
+                  processing:
+                    type: string
+                    example: Down
+                  audit:
+                    type: string
+                    example: Running
+                  last_update:
+                    type: string
+                    format: date-time
+                    example: 2022-03-22T11:12:23
         '400':
           description: Invalid request
           content:
@@ -41,16 +45,6 @@ paths:
                 properties:
                   message:
                     type: string
-  /health:
-    get:
-      summary: Gives health status 
-      description: Gives health status
-      operationId: app.get_health
-      responses:
-        "200":
-          description: "Service running"
-        "400":
-          description: "Service not running"
 components:
   schemas:
     ReadingStats:

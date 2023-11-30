@@ -137,6 +137,9 @@ def populate_stats():
 
     logger.info("Periodic Processing ended")
 
+def get_health():
+    return 200
+
 def get_stats():
 
     logger.info("The request has started")

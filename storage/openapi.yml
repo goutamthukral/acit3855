@@ -92,6 +92,16 @@ paths:
                 properties:
                   message:
                     type: string
+  /health:
+    get:
+      summary: Gives health status 
+      description: Gives health status
+      operationId: app.get_health
+      responses:
+        "200":
+          description: "Service running"
+        "400":
+          description: "Service not running"
 components:
   schemas:
     TemperatureRecording:

@@ -106,6 +106,8 @@ def get_weather_recording(start_timestamp, end_timestamp):
     logger.info("Query for Weather recordings after %s returns %d results" %(end_timestamp, len(results_list)))
     return results_list, 200
 
+def get_health():
+    return 200
 
 def process_messages():
 

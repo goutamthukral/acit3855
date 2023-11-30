@@ -55,8 +55,6 @@ services:
       - /home/goutam_thukral/logs:/logs
     depends_on:
       - "kafka"
-    deploy: 
-      replicas: 3
   storage:
     image: storage
     ports: 
@@ -71,8 +69,6 @@ services:
     depends_on:
       - "kafka"
       - "db"
-    deploy:
-      replicas: 2
   processing:
     image: processing
     ports: 

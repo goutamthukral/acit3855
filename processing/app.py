@@ -89,21 +89,31 @@ def populate_stats():
         temperature_data = response1.json()
         weather_data = response2.json()
 
+        # old_num_temperature_readings = num_temperature_readings
+        # new_temperature_readings = len(temperature_data)
+        # num_temperature_readings = num_temperature_readings + new_temperature_readings
 
-        old_num_temperature_readings = num_temperature_readings
-        new_temperature_readings = len(temperature_data)
-        num_temperature_readings = num_temperature_readings + new_temperature_readings
+        # sum_temperature = 0
 
+        # for element in temperature_data:
+        #     sum_temperature = sum_temperature + element['maximum_temperature']
+
+        # avg_max_temperature_reading = int((avg_max_temperature_reading*old_num_temperature_readings + sum_temperature)/(num_temperature_readings+1)) 
+
+        total_max_temperature = 0
+        num_temperature_readings = len(temperature_data)
+
+        for element in temperature_data:
+            total_max_temperature += element['maximum_temperature']
+
+        if num_temperature_readings > 0:
+            avg_max_temperature_reading = total_max_temperature / num_temperature_readings
+            avg_max_temperature_reading = int(avg_max_temperature_reading)
+        else:
+            avg_max_temperature_reading = 0
 
         new_weather_recordings = len(weather_data)
         num_weather_recordings = num_weather_recordings + new_weather_recordings
-
-        sum_temperature = 0
-
-        for element in temperature_data:
-            sum_temperature = sum_temperature + element['maximum_temperature']
-
-        avg_max_temperature_reading = int((avg_max_temperature_reading*old_num_temperature_readings + sum_temperature)/(num_temperature_readings+1)) 
 
         for element in weather_data:
             if element['humidity'] > max_humidity_reading:

@@ -70,7 +70,6 @@ def populate_stats():
     max_humidity_reading = data['max_humidity_reading']
     last_updated = data['last_updated']
 
-
     if (last_updated == 0):
         current_datetime = datetime.datetime.now()
         current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -90,29 +89,12 @@ def populate_stats():
         temperature_data = response1.json()
         weather_data = response2.json()
 
-        # old_num_temperature_readings = num_temperature_readings
-        # new_temperature_readings = len(temperature_data)
-        # num_temperature_readings = num_temperature_readings + new_temperature_readings
-
-        # sum_temperature = 0
-
-        # for element in temperature_data:
-        #     sum_temperature = sum_temperature + element['maximum_temperature']
-
-        # avg_max_temperature_reading = int((avg_max_temperature_reading*old_num_temperature_readings + sum_temperature)/(num_temperature_readings+1)) 
-
-        total_max_temperature = 0
         new_temperature_readings = len(temperature_data)
         num_temperature_readings = num_temperature_readings + new_temperature_readings
 
         for element in temperature_data:
-            total_max_temperature += element['maximum_temperature']
-
-        if num_temperature_readings > 0:
-            avg_max_temperature_reading = total_max_temperature / num_temperature_readings
-            avg_max_temperature_reading = int(avg_max_temperature_reading)
-        else:
-            avg_max_temperature_reading = 0
+            if element['maximum_temperature'] > avg_max_temperature_reading:
+                avg_max_temperature_reading = element['maximum_temperature'] 
 
         new_weather_recordings = len(weather_data)
         num_weather_recordings = num_weather_recordings + new_weather_recordings
@@ -121,8 +103,6 @@ def populate_stats():
             if element['humidity'] > max_humidity_reading:
                 max_humidity_reading = element['humidity']
         
-        # current_datetime = datetime.datetime.now()
-        # current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
         last_updated = current_timestamp
 
         data = {

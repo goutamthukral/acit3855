@@ -6,22 +6,19 @@ export default function AppStats() {
     const [stats, setStats] = useState({});
     const [error, setError] = useState(null)
 
-
     const getTimeStamp = () => {
         const timestamp = Date.now(); // Get the current timestamp in milliseconds
         const date = new Date(timestamp); // Convert timestamp to a Date object
         const formattedDate = date.toLocaleString(); // Get a human-readable date string
         return formattedDate;
     };
-  
 
 	const getStats = () => {
 	
-        // fetch(`http://acit3855.westus.cloudapp.azure.com:8100/stats`)
-        fetch(`http://acit3855.westus.cloudapp.azure.com/processing/stats`)
+        fetch(`http://acit3855.westus.cloudapp.azure.com/health/health`)
             .then(res => res.json())
             .then((result)=>{
-				console.log("Received Stats")
+				console.log("Received Health Stats")
                 setStats(result);
                 setIsLoaded(true);
             },(error) =>{
@@ -45,18 +42,19 @@ export default function AppStats() {
                 <table className={"StatsTable"}>
 					<tbody>
 						<tr>
-							<th>Temperature</th>
-							<th>Weather</th>
+							<td>Reciever: {stats['receiver']}</td>
 						</tr>
 						<tr>
-							<td>Number of Temperature Readings: {stats['num_temperature_readings']}</td>
-							<td>Number of Weather Readings: {stats['num_weather_recordings']}</td>
+                            <td>Storage: {stats['storage']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Average Max Temperature: {stats['avg_max_temperature_reading']}</td>
+                            <td>Processing: {stats['processing']}</td>
 						</tr>
-						<tr>
-							<td colspan="2">Max Humidity Reading: {stats['max_humidity_reading']}</td>
+                        <tr>
+                            <td>Audit: {stats['audit']}</td>
+						</tr>
+                        <tr>
+                            <td>Last Updated: {stats['last_updated']}</td>
 						</tr>
 					</tbody>
                 </table>

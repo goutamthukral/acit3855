@@ -1,0 +1,158 @@
+2023-12-06 20:42:46,977 - basicLogger - INFO - App Conf File: app_conf.yml
+2023-12-06 20:42:46,979 - basicLogger - INFO - Log Conf File: log_conf.yml
+2023-12-06 20:42:47,027 - basicLogger - INFO - App Conf File: app_conf.yml
+2023-12-06 20:42:47,028 - basicLogger - INFO - Log Conf File: log_conf.yml
+2023-12-06 20:43:07,513 - basicLogger - INFO - Status service logged
+2023-12-06 20:43:07,514 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:43:27,501 - basicLogger - INFO - Status service logged
+2023-12-06 20:43:27,502 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:43:47,513 - basicLogger - INFO - Status service logged
+2023-12-06 20:43:47,514 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:44:07,546 - basicLogger - INFO - Status service logged
+2023-12-06 20:44:07,546 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:44:27,491 - basicLogger - INFO - Status service logged
+2023-12-06 20:44:27,492 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:44:47,519 - basicLogger - INFO - Status service logged
+2023-12-06 20:44:47,520 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:45:07,507 - basicLogger - INFO - Status service logged
+2023-12-06 20:45:07,508 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:45:27,525 - basicLogger - INFO - Status service logged
+2023-12-06 20:45:27,526 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:45:27,539 - basicLogger - INFO - The request has started
+2023-12-06 20:45:27,555 - basicLogger - INFO - Request has been completed
+2023-12-06 20:45:47,508 - basicLogger - INFO - Status service logged
+2023-12-06 20:45:47,509 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:46:07,504 - basicLogger - INFO - Status service logged
+2023-12-06 20:46:07,505 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:46:27,499 - basicLogger - INFO - Status service logged
+2023-12-06 20:46:27,500 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:46:47,478 - basicLogger - INFO - Status service logged
+2023-12-06 20:46:47,479 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:47:07,534 - basicLogger - INFO - Status service logged
+2023-12-06 20:47:07,535 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:47:17,664 - basicLogger - INFO - The request has started
+2023-12-06 20:47:17,673 - basicLogger - INFO - Request has been completed
+2023-12-06 20:47:24,153 - basicLogger - INFO - The request has started
+2023-12-06 20:47:24,155 - basicLogger - INFO - Request has been completed
+2023-12-06 20:47:27,483 - basicLogger - INFO - Status service logged
+2023-12-06 20:47:27,484 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:47:47,535 - basicLogger - INFO - Status service logged
+2023-12-06 20:47:47,536 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:48:07,510 - basicLogger - INFO - Status service logged
+2023-12-06 20:48:07,510 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:48:27,478 - basicLogger - INFO - Status service logged
+2023-12-06 20:48:27,479 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:48:47,516 - basicLogger - INFO - Status service logged
+2023-12-06 20:48:47,517 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:49:07,499 - basicLogger - INFO - Status service logged
+2023-12-06 20:49:07,499 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:49:27,517 - basicLogger - INFO - Status service logged
+2023-12-06 20:49:27,518 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:49:47,490 - basicLogger - INFO - Status service logged
+2023-12-06 20:49:47,491 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:50:07,494 - basicLogger - INFO - Status service logged
+2023-12-06 20:50:07,495 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:50:27,514 - basicLogger - INFO - Status service logged
+2023-12-06 20:50:27,514 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:50:47,502 - basicLogger - INFO - Status service logged
+2023-12-06 20:50:47,503 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:51:07,503 - basicLogger - INFO - Status service logged
+2023-12-06 20:51:07,505 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:51:27,473 - basicLogger - INFO - Status service logged
+2023-12-06 20:51:27,474 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:51:47,494 - basicLogger - INFO - Status service logged
+2023-12-06 20:51:47,495 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:52:10,312 - basicLogger - INFO - The request has started
+2023-12-06 20:52:10,314 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:11,456 - basicLogger - INFO - The request has started
+2023-12-06 20:52:11,457 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:12,638 - basicLogger - INFO - The request has started
+2023-12-06 20:52:12,639 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:13,577 - basicLogger - INFO - The request has started
+2023-12-06 20:52:13,579 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:15,112 - basicLogger - INFO - The request has started
+2023-12-06 20:52:15,113 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:16,370 - basicLogger - INFO - The request has started
+2023-12-06 20:52:16,371 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:17,524 - basicLogger - INFO - The request has started
+2023-12-06 20:52:17,526 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:18,808 - basicLogger - INFO - The request has started
+2023-12-06 20:52:18,809 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:21,672 - basicLogger - INFO - The request has started
+2023-12-06 20:52:21,673 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:22,490 - basicLogger - INFO - The request has started
+2023-12-06 20:52:22,492 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:23,561 - basicLogger - INFO - The request has started
+2023-12-06 20:52:23,563 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:24,335 - basicLogger - INFO - The request has started
+2023-12-06 20:52:24,337 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:42,115 - basicLogger - INFO - The request has started
+2023-12-06 20:52:42,116 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:43,198 - basicLogger - INFO - The request has started
+2023-12-06 20:52:43,199 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:44,399 - basicLogger - INFO - The request has started
+2023-12-06 20:52:44,400 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:45,710 - basicLogger - INFO - The request has started
+2023-12-06 20:52:45,711 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:46,658 - basicLogger - INFO - The request has started
+2023-12-06 20:52:46,659 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:47,912 - basicLogger - INFO - The request has started
+2023-12-06 20:52:47,913 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:50,554 - basicLogger - INFO - Status service logged
+2023-12-06 20:52:50,555 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:52:52,011 - basicLogger - INFO - The request has started
+2023-12-06 20:52:52,013 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:53,080 - basicLogger - INFO - The request has started
+2023-12-06 20:52:53,081 - basicLogger - INFO - Request has been completed
+2023-12-06 20:52:53,340 - basicLogger - INFO - The request has started
+2023-12-06 20:52:53,341 - basicLogger - INFO - Request has been completed
+2023-12-06 20:53:10,563 - basicLogger - INFO - Status service logged
+2023-12-06 20:53:10,563 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:53:30,515 - basicLogger - INFO - Status service logged
+2023-12-06 20:53:30,516 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:53:47,526 - basicLogger - INFO - Status service logged
+2023-12-06 20:53:47,527 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:53:54,757 - basicLogger - INFO - The request has started
+2023-12-06 20:53:54,758 - basicLogger - INFO - Request has been completed
+2023-12-06 20:54:07,496 - basicLogger - INFO - Status service logged
+2023-12-06 20:54:07,496 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:55:10,575 - basicLogger - INFO - Status service logged
+2023-12-06 20:55:10,576 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:55:24,102 - basicLogger - INFO - The request has started
+2023-12-06 20:55:24,103 - basicLogger - INFO - Request has been completed
+2023-12-06 20:55:30,622 - basicLogger - INFO - Status service logged
+2023-12-06 20:55:30,623 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:55:34,808 - basicLogger - INFO - The request has started
+2023-12-06 20:55:34,810 - basicLogger - INFO - Request has been completed
+2023-12-06 20:55:47,493 - basicLogger - INFO - Status service logged
+2023-12-06 20:55:47,494 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:56:07,476 - basicLogger - INFO - Status service logged
+2023-12-06 20:56:07,477 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:56:27,539 - basicLogger - INFO - Status service logged
+2023-12-06 20:56:27,540 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:56:47,480 - basicLogger - INFO - Status service logged
+2023-12-06 20:56:47,481 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:57:07,486 - basicLogger - INFO - Status service logged
+2023-12-06 20:57:07,487 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:57:27,479 - basicLogger - INFO - Status service logged
+2023-12-06 20:57:27,480 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:57:47,515 - basicLogger - INFO - Status service logged
+2023-12-06 20:57:47,516 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:57:52,733 - basicLogger - INFO - The request has started
+2023-12-06 20:57:52,735 - basicLogger - INFO - Request has been completed
+2023-12-06 20:58:07,508 - basicLogger - INFO - Status service logged
+2023-12-06 20:58:07,509 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:58:27,493 - basicLogger - INFO - Status service logged
+2023-12-06 20:58:27,493 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:58:47,491 - basicLogger - INFO - Status service logged
+2023-12-06 20:58:47,492 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:59:07,505 - basicLogger - INFO - Status service logged
+2023-12-06 20:59:07,506 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:59:27,523 - basicLogger - INFO - Status service logged
+2023-12-06 20:59:27,524 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 20:59:47,503 - basicLogger - INFO - Status service logged
+2023-12-06 20:59:47,504 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:00:07,512 - basicLogger - INFO - Status service logged
+2023-12-06 21:00:07,513 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:00:27,486 - basicLogger - INFO - Status service logged
+2023-12-06 21:00:27,488 - basicLogger - INFO - Periodic Processing ended

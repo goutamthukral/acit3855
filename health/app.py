@@ -52,10 +52,10 @@ def populate_stats():
             "last_updated": 0
         }
 
-    if (last_updated == 0):
+    if (data['last_updated'] == 0):
         current_datetime = datetime.datetime.now()
         current_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
-        last_updated = current_datetime
+        data['last_updated'] = current_datetime
     
     current_timestamp = datetime.datetime.now()
     current_timestamp = current_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -123,7 +123,7 @@ if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":
     CORS(app.app)
     app.app.config['CORS_HEADERS'] = 'Content-Type'
 
-app.add_api("openapi.yml", base_path="/processing",
+app.add_api("openapi.yml", base_path="/health",
 strict_validation=True,
 validate_responses=True)
 

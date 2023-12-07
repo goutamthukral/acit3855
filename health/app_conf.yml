@@ -4,7 +4,7 @@ datastore:
 scheduler:
   period_sec: 20
 eventstore:
-  receiver: http://localhost:8080/health
-  storage: http://localhost:8090/health
-  processing: http://localhost:8100/health
-  audit: http://localhost:8110/health
+  receiver: http://acit3855.westus.cloudapp.azure.com/receiver/health
+  storage: http://acit3855.westus.cloudapp.azure.com/storage/health
+  processing: http://acit3855.westus.cloudapp.azure.com/processing/health
+  audit: http://acit3855.westus.cloudapp.azure.com/audit/health

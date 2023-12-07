@@ -156,3 +156,35 @@
 2023-12-06 21:00:07,513 - basicLogger - INFO - Periodic Processing ended
 2023-12-06 21:00:27,486 - basicLogger - INFO - Status service logged
 2023-12-06 21:00:27,488 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:03:48,258 - basicLogger - INFO - App Conf File: app_conf.yml
+2023-12-06 21:03:48,259 - basicLogger - INFO - Log Conf File: log_conf.yml
+2023-12-06 21:03:48,317 - basicLogger - INFO - App Conf File: app_conf.yml
+2023-12-06 21:03:48,319 - basicLogger - INFO - Log Conf File: log_conf.yml
+2023-12-06 21:04:08,847 - basicLogger - INFO - Status service logged
+2023-12-06 21:04:08,849 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:04:28,845 - basicLogger - INFO - Status service logged
+2023-12-06 21:04:28,846 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:04:48,873 - basicLogger - INFO - Status service logged
+2023-12-06 21:04:48,874 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:05:08,848 - basicLogger - INFO - Status service logged
+2023-12-06 21:05:08,849 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:05:28,838 - basicLogger - INFO - Status service logged
+2023-12-06 21:05:28,839 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:05:48,845 - basicLogger - INFO - Status service logged
+2023-12-06 21:05:48,846 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:06:08,856 - basicLogger - INFO - Status service logged
+2023-12-06 21:06:08,857 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:06:28,829 - basicLogger - INFO - Status service logged
+2023-12-06 21:06:28,830 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:06:48,873 - basicLogger - INFO - Status service logged
+2023-12-06 21:06:48,874 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:07:08,852 - basicLogger - INFO - Status service logged
+2023-12-06 21:07:08,853 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:07:28,844 - basicLogger - INFO - Status service logged
+2023-12-06 21:07:28,845 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:07:48,848 - basicLogger - INFO - Status service logged
+2023-12-06 21:07:48,849 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:08:08,854 - basicLogger - INFO - Status service logged
+2023-12-06 21:08:08,856 - basicLogger - INFO - Periodic Processing ended
+2023-12-06 21:08:28,840 - basicLogger - INFO - Status service logged
+2023-12-06 21:08:28,841 - basicLogger - INFO - Periodic Processing ended

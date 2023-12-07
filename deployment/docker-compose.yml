@@ -76,7 +76,7 @@ services:
     networks:
       - "api.network"
     environment:
-      - TARGET_ENV=test
+      - TARGET_ENV=non_test
     depends_on:
       - "storage"
       - "processing"

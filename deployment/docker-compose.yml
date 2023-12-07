@@ -69,6 +69,19 @@ services:
     depends_on:
       - "kafka"
       - "db"
+  health:
+    image: health
+    ports: 
+      - "8120"
+    networks:
+      - "api.network"
+    environment:
+      - TARGET_ENV=test
+    depends_on:
+      - "storage"
+      - "processing"
+      - "audit_log"
+      - "receiver"
   processing:
     image: processing
     ports: 

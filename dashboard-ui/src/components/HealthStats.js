@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
 
-export default function AppStats() {
+export default function HealthStats() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [stats, setStats] = useState({});
     const [error, setError] = useState(null)
@@ -38,7 +38,6 @@ export default function AppStats() {
     } else if (isLoaded === true){
         return(
             <div>
-                <h1>Latest Stats</h1>
                 <table className={"StatsTable"}>
 					<tbody>
 						<tr>
@@ -58,7 +57,6 @@ export default function AppStats() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {getTimeStamp()}</h3>
 
             </div>
         )

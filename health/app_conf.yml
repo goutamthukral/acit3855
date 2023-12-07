@@ -7,4 +7,4 @@ eventstore:
   receiver: http://acit3855.westus.cloudapp.azure.com/receiver/health
   storage: http://acit3855.westus.cloudapp.azure.com/storage/health
   processing: http://acit3855.westus.cloudapp.azure.com/processing/health
-  audit: http://acit3855.westus.cloudapp.azure.com/audit/health
+  audit: http://acit3855.westus.cloudapp.azure.com/audit_log/health

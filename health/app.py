@@ -60,10 +60,10 @@ def populate_stats():
     current_timestamp = datetime.datetime.now()
     current_timestamp = current_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    receiver_health = requests.get(receiver_endpoint)
-    storage_health = requests.get(storage_endpoint)
-    processing_health = requests.get(processing_endpoint)
-    audit_health = requests.get(audit_endpoint)
+    receiver_health = requests.get(receiver_endpoint, timeout=5)
+    storage_health = requests.get(storage_endpoint, timeout=5)
+    processing_health = requests.get(processing_endpoint, timeout=5)
+    audit_health = requests.get(audit_endpoint, timeout=5)
 
     if receiver_health.status_code == 200:
         data['receiver'] = "Running"

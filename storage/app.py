@@ -107,7 +107,7 @@ def get_weather_recording(start_timestamp, end_timestamp):
     return results_list, 200
 
 def get_health():
-    return 200
+    return NoContent, 200
 
 def process_messages():
 

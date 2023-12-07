@@ -113,7 +113,7 @@ def record_weather_condition(body):
     return NoContent, 201
 
 def get_health():
-    return 200
+    return NoContent, 200
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 app.add_api("openapi.yml", base_path="/receiver",

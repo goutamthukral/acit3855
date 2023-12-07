@@ -120,7 +120,7 @@ def get_weather_recording(index):
     return { "message": "Not Found"}, 404
 
 def get_health():
-    return 200
+    return NoContent, 200
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":

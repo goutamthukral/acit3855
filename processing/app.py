@@ -7,6 +7,7 @@ import connexion
 import json
 import requests
 import os
+from connexion import NoContent
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask_cors import CORS, cross_origin
@@ -101,7 +102,8 @@ def populate_stats():
         # avg_max_temperature_reading = int((avg_max_temperature_reading*old_num_temperature_readings + sum_temperature)/(num_temperature_readings+1)) 
 
         total_max_temperature = 0
-        num_temperature_readings = len(temperature_data)
+        new_temperature_readings = len(temperature_data)
+        num_temperature_readings = num_temperature_readings + new_temperature_readings
 
         for element in temperature_data:
             total_max_temperature += element['maximum_temperature']
@@ -148,7 +150,7 @@ def populate_stats():
     logger.info("Periodic Processing ended")
 
 def get_health():
-    return 200
+    return NoContent, 200
 
 def get_stats():
 
